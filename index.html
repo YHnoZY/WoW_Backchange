@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background: url(0.jpg) no-repeat 0 0/cover;
+        }
+        .thumb_box{
+            margin: 20px auto;
+            width: 330px;
+            height: 90px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: rgb(207, 232, 251);
+            border-radius:5px;
+        }
+        .thumb_box ul{
+            list-style: none;
+            height: 80px;
+        }
+        .thumb_box li{
+            display: inline-block;
+            width: 100px;
+            height: 100%;
+            border-radius:3px;
+            background: greenyellow no-repeat 0 0/cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="thumb_box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        var lis = document.querySelectorAll('.thumb_box li');
+        
+        window.onload = () =>{
+            init();
+        }
+
+        function init(){
+            for(var i=0;i<lis.length;i++){lis[i].style.backgroundImage = `url(${i}.jpg)`;}
+        }
+
+        // lis[0].onmouseover = function (){document.body.style.backgroundImage = `url(${0}.jpg)`;}
+        // lis[1].onmouseover = function (){document.body.style.backgroundImage = `url(${1}.jpg)`;}
+        // lis[2].onmouseover = function (){document.body.style.backgroundImage = `url(${2}.jpg)`;}
+
+        for(let i=0; i<lis.length; i++){
+                lis[i].onmouseover = () => document.body.style.backgroundImage = `url(${i}.jpg)`;
+            }
+    </script>
+</body>
+</html>
